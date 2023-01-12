@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Popup</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins";
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .send {
+        padding: 10px 20px;
+        text-transform: uppercase;
+        border: none;
+        outline: none;
+        font-size: 30px;
+        background: #282828;
+        border-radius: 10px;
+        color: #f3f3f3;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+        cursor: pointer;
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+      }
+      .popup {
+        position: absolute;
+        top: 0%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.2);
+        background: #282828;
+        padding: 50px;
+        border-radius: 10px;
+        color: white;
+        text-align: center;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+        transition: 0.3s;
+        opacity: 0;
+        pointer-events: none;
+      }
+      .popup_active {
+        opacity: 1;
+        pointer-events: all;
+        top: 50%;
+        transform: translate(-50%, -50%) scale(1);
+      }
+      .popup img {
+        /* filter: invert(); */
+        width: 100px;
+        border-radius: 50%;
+        background: orange;
+        padding: 20px;
+        margin-top: -200px;
+      }
+      .popup h1 {
+        margin: 10px 0px;
+        font-size: 50px;
+      }
+      .popup p {
+        width: 70%;
+        margin: auto;
+        margin-bottom: 20px;
+      }
+      .popup button {
+        padding: 10px 20px;
+        border: 0;
+        outline: none;
+        background: greenyellow;
+        border-radius: 10px;
+        width: 70%;
+        cursor: pointer;
+        font-size: 20px;
+        color: #282828;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="send" onclick="loadPopup()">send money</button>
+    <div class="popup" id="popup">
+      <img src="./yes.svg" />
+      <h1>Thank You</h1>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+      <button onclick="hidePopup()">Close</button>
+    </div>
+    <script>
+      const popup = document.querySelector("#popup");
+      function loadPopup() {
+        popup.classList.add("popup_active");
+      }
+      function hidePopup() {
+        popup.classList.remove("popup_active");
+      }
+    </script>
+  </body>
+</html>
